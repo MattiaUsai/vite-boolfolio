@@ -23,23 +23,31 @@ export default {
 </script>
 
 <template>
-  list
-  <ul>
-    <li></li>
-  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="card-project" v-for="project in store.projectList">
+        <h3>{{ project.nome }}</h3>
+        <h4>{{ project.repository }}</h4>
+        <p>{{ project.descrizione }}</p>
+        <h2>{{ project.prezzo }}</h2>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.container {
+  width: 80vw;
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .card-project {
+      background-color: lightgray;
+      width: calc(25% - 20px);
+      height: 40vh;
+      margin: 10px;
+    }
+  }
 }
 </style>
